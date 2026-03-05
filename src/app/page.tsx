@@ -1,65 +1,116 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function Page() {
+  const ott = Array.from({ length: 10 }, (_, i) => i + 1);
+  const creator = Array.from({ length: 10 }, (_, i) => i + 1);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-[#07060a] text-white">
+      {/* Background */}
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#2a0f1d_0%,#07060a_52%,#05050a_100%)]" />
+        <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:28px_28px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-5 py-10">
+        {/* Header */}
+        <header className="mb-10 rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+          <p className="text-xs uppercase tracking-[0.32em] text-white/60">
+            Ani Studio · Design Prototypes
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          <h1 className="mt-3 text-3xl font-semibold sm:text-5xl">
+            OTT + 작가 제작 플랫폼 시안
+          </h1>
+          <p className="mt-4 max-w-3xl text-sm leading-6 text-white/70 sm:text-base">
+            아래 버튼을 누르면 각 번호별 페이지로 이동해. 이번 규칙대로
+            <span className="text-white/90"> “각 시안은 해당 번호 page.tsx 안에만” </span>
+            들어가게 만들 거야.
+            <br />
+            (현재는 <span className="text-[#d4b26b] font-semibold">시안 1</span>만 코드 제공)
+          </p>
+        </header>
+
+        {/* OTT */}
+        <section className="mb-12">
+          <div className="mb-4 flex items-end justify-between">
+            <h2 className="text-2xl font-semibold">OTT 시안</h2>
+            <span className="text-sm text-white/55">1 ~ 10</span>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {ott.map((n) => (
+              <Link
+                key={`ott-${n}`}
+                href={`/ott/${n}`}
+                className="group rounded-[26px] border border-white/10 bg-white/5 p-5 transition hover:-translate-y-1 hover:border-white/25 hover:bg-white/7"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="rounded-full border border-white/15 bg-black/10 px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/70">
+                    OTT
+                  </span>
+                  <span className="text-sm text-white/50 transition group-hover:text-white/85">
+                    열기 →
+                  </span>
+                </div>
+
+                <div className="flex items-end justify-between">
+                  <div>
+                    <p className="text-xl font-semibold">시안 {n}</p>
+                    <p className="mt-1 text-sm text-white/65">
+                      {n === 1 ? "Cinematic Premium" : "준비중"}
+                    </p>
+                  </div>
+
+                  <div className="h-10 w-10 rounded-2xl border border-[#d4b26b]/25 bg-[radial-gradient(circle_at_top,#d4b26b33_0%,#ffffff0a_55%,transparent_100%)]" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Creator */}
+        <section>
+          <div className="mb-4 flex items-end justify-between">
+            <h2 className="text-2xl font-semibold">작가 페이지(B2C) 시안</h2>
+            <span className="text-sm text-white/55">1 ~ 10</span>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {creator.map((n) => (
+              <Link
+                key={`creator-${n}`}
+                href={`/creator/${n}`}
+                className="group rounded-[26px] border border-white/10 bg-white/5 p-5 transition hover:-translate-y-1 hover:border-white/25 hover:bg-white/7"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="rounded-full border border-white/15 bg-black/10 px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/70">
+                    B2C
+                  </span>
+                  <span className="text-sm text-white/50 transition group-hover:text-white/85">
+                    열기 →
+                  </span>
+                </div>
+
+                <div className="flex items-end justify-between">
+                  <div>
+                    <p className="text-xl font-semibold">시안 {n}</p>
+                    <p className="mt-1 text-sm text-white/65">
+                      {n === 1 ? "Cinematic Premium (Creator)" : "준비중"}
+                    </p>
+                  </div>
+
+                  <div className="h-10 w-10 rounded-2xl border border-[#d4b26b]/25 bg-[radial-gradient(circle_at_top,#d4b26b33_0%,#ffffff0a_55%,transparent_100%)]" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <footer className="mt-12 text-xs text-white/45">
+          TIP: 아직 2~10 페이지 파일을 안 만들면, 버튼 눌렀을 때 404가 뜨는 게 정상.
+          다음 단계에서 번호별로 하나씩 만들어갈 거야.
+        </footer>
+      </div>
+    </main>
   );
 }
