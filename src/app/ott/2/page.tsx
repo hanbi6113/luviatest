@@ -75,7 +75,26 @@ export default function Page() {
           >
             ← 홈
           </Link>
-
+          <div className="hidden items-center gap-6 md:flex">
+          <a href="#" className="text-sm font-medium text-[#b46b89] transition hover:text-[#c76790]">
+            홈
+          </a>
+          <a href="#" className="text-sm font-medium text-[#b46b89] transition hover:text-[#c76790]">
+            로판
+          </a>
+          <a href="#" className="text-sm font-medium text-[#b46b89] transition hover:text-[#c76790]">
+            황궁
+          </a>
+          <a href="#" className="text-sm font-medium text-[#b46b89] transition hover:text-[#c76790]">
+            귀족
+          </a>
+          <a href="#" className="text-sm font-medium text-[#b46b89] transition hover:text-[#c76790]">
+            회귀·빙의
+          </a>
+          <a href="#" className="text-sm font-medium text-[#b46b89] transition hover:text-[#c76790]">
+            운명 로맨스
+          </a>
+        </div>
           <Link
             href="/creator/2"
             className="rounded-full border border-[#f6bfd8] bg-[#fff0f7] px-4 py-2 text-sm font-medium text-[#c76790] shadow-sm transition hover:bg-[#ffe8f3]"

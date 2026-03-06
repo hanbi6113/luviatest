@@ -1,8 +1,31 @@
 import Link from "next/link";
 
 export default function Page() {
-  const ott = Array.from({ length: 10 }, (_, i) => i + 1);
-  const creator = Array.from({ length: 10 }, (_, i) => i + 1);
+  const ott = [
+    { id: 1, name: "프리미엄 시네마 느낌" },
+    { id: 2, name: "로맨스 판타지(로판)" },
+    { id: 3, name: "액션" },
+    { id: 4, name: "로맨스" },
+    { id: 5, name: "공포" },
+    { id: 6, name: "판타지" },
+    { id: 7, name: "SF" },
+    { id: 8, name: "키즈" },
+    { id: 9, name: "오티티 메인페이지(통합)" },
+    { id: 10, name: "Youth Healing" },
+  ];
+
+  const creator = [
+    { id: 1, name: "Cinematic Premium (Creator)" },
+    { id: 2, name: "Bright Lovely Studio" },
+    { id: 3, name: "Action Creator Studio" },
+    { id: 4, name: "Romance Creator Studio" },
+    { id: 5, name: "Horror Creator Studio" },
+    { id: 6, name: "Fantasy Creator Studio" },
+    { id: 7, name: "SF Creator Lab" },
+    { id: 8, name: "Kids Creator Studio" },
+    { id: 9, name: "작가페이지도 통합" },
+    { id: 10, name: "Youth Creator Studio" },
+  ];
 
   return (
     <main className="min-h-screen bg-[#07060a] text-white">
@@ -21,13 +44,6 @@ export default function Page() {
           <h1 className="mt-3 text-3xl font-semibold sm:text-5xl">
             OTT + 작가 제작 플랫폼 시안
           </h1>
-          <p className="mt-4 max-w-3xl text-sm leading-6 text-white/70 sm:text-base">
-            아래 버튼을 누르면 각 번호별 페이지로 이동해. 이번 규칙대로
-            <span className="text-white/90"> “각 시안은 해당 번호 page.tsx 안에만” </span>
-            들어가게 만들 거야.
-            <br />
-            (현재는 <span className="text-[#d4b26b] font-semibold">시안 1</span>만 코드 제공)
-          </p>
         </header>
 
         {/* OTT */}
@@ -38,10 +54,10 @@ export default function Page() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {ott.map((n) => (
+            {ott.map((item) => (
               <Link
-                key={`ott-${n}`}
-                href={`/ott/${n}`}
+                key={`ott-${item.id}`}
+                href={`/ott/${item.id}`}
                 className="group rounded-[26px] border border-white/10 bg-white/5 p-5 transition hover:-translate-y-1 hover:border-white/25 hover:bg-white/7"
               >
                 <div className="mb-3 flex items-center justify-between">
@@ -53,12 +69,10 @@ export default function Page() {
                   </span>
                 </div>
 
-                <div className="flex items-end justify-between">
+                <div className="flex items-end justify-between gap-4">
                   <div>
-                    <p className="text-xl font-semibold">시안 {n}</p>
-                    <p className="mt-1 text-sm text-white/65">
-                      {n === 1 ? "Cinematic Premium" : "준비중"}
-                    </p>
+                    <p className="text-xl font-semibold">시안 {item.id}</p>
+                    <p className="mt-1 text-sm text-white/65">{item.name}</p>
                   </div>
 
                   <div className="h-10 w-10 rounded-2xl border border-[#d4b26b]/25 bg-[radial-gradient(circle_at_top,#d4b26b33_0%,#ffffff0a_55%,transparent_100%)]" />
@@ -76,10 +90,10 @@ export default function Page() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {creator.map((n) => (
+            {creator.map((item) => (
               <Link
-                key={`creator-${n}`}
-                href={`/creator/${n}`}
+                key={`creator-${item.id}`}
+                href={`/creator/${item.id}`}
                 className="group rounded-[26px] border border-white/10 bg-white/5 p-5 transition hover:-translate-y-1 hover:border-white/25 hover:bg-white/7"
               >
                 <div className="mb-3 flex items-center justify-between">
@@ -91,12 +105,10 @@ export default function Page() {
                   </span>
                 </div>
 
-                <div className="flex items-end justify-between">
+                <div className="flex items-end justify-between gap-4">
                   <div>
-                    <p className="text-xl font-semibold">시안 {n}</p>
-                    <p className="mt-1 text-sm text-white/65">
-                      {n === 1 ? "Cinematic Premium (Creator)" : "준비중"}
-                    </p>
+                    <p className="text-xl font-semibold">시안 {item.id}</p>
+                    <p className="mt-1 text-sm text-white/65">{item.name}</p>
                   </div>
 
                   <div className="h-10 w-10 rounded-2xl border border-[#d4b26b]/25 bg-[radial-gradient(circle_at_top,#d4b26b33_0%,#ffffff0a_55%,transparent_100%)]" />
@@ -107,8 +119,7 @@ export default function Page() {
         </section>
 
         <footer className="mt-12 text-xs text-white/45">
-          TIP: 아직 2~10 페이지 파일을 안 만들면, 버튼 눌렀을 때 404가 뜨는 게 정상.
-          다음 단계에서 번호별로 하나씩 만들어갈 거야.
+          TIP: 아직 페이지 파일을 안 만들면, 버튼 눌렀을 때 404가 뜨는 게 정상.
         </footer>
       </div>
     </main>
