@@ -11,7 +11,7 @@ export default function Page() {
     { id: 7, name: "SF" },
     { id: 8, name: "키즈" },
     { id: 9, name: "오티티 메인페이지(통합)" },
-    { id: 10, name: "Youth Healing" },
+    { id: 10, name: "통합" },
   ];
 
   const creator = [
@@ -24,7 +24,7 @@ export default function Page() {
     { id: 7, name: "SF Creator Lab" },
     { id: 8, name: "Kids Creator Studio" },
     { id: 9, name: "작가페이지도 통합" },
-    { id: 10, name: "Youth Creator Studio" },
+    { id: 10, name: "통합" },
   ];
 
   return (
